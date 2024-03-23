@@ -10,3 +10,8 @@ class screen:
     def get_resolution(self):
         return self.resolution
     
+    def fill_screen(self):
+        self.resolution.fill(self.background_color)
+        
+        game.display.update()
+

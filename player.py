@@ -9,7 +9,7 @@ class player:
         self.pos_x = pos_x
         self.pos_y = pos_y
 
-    def get_movement(self):
+    def get_movement(self, screen):
         get_key = game.key.get_pressed()
 
         if get_key[game.K_w]:
@@ -20,14 +20,13 @@ class player:
             self.pos_y += self.speed
         if get_key[game.K_d]:
             self.pos_x += self.speed
+            
 
-        game.draw.circle((game.display.set_mode([800, 600])), (0,0,255), (self.pos_x, self.pos_y), 75)
-        #Hard coded screen resolution for now. Expect screen class later. 
+        game.draw.circle(screen, (0,0,255), (self.pos_x, self.pos_y), 75)
+        #Expect screen class later. 
 
     def draw_player(self):
-        self.get_movement()
+        self.get_movement()   
 
-        game.display.update()
-        game.display.flip()
-        
+           
     

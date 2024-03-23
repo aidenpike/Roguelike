@@ -1,5 +1,6 @@
 import pygame as game
 import math 
+from screen import *
 
 # Encompasses all player related controls 
 class player:
@@ -10,6 +11,11 @@ class player:
         self.speed = speed
         self.pos_x = pos_x
         self.pos_y = pos_y
+
+        resolution = game.display.set_mode([800, 600])
+        background_color = (128, 128, 128)
+        o_screen = screen(resolution, background_color)
+        self.o_screen = o_screen
 
     # Moves player based on input
     def get_movement(self, screen):
@@ -24,8 +30,7 @@ class player:
         if get_key[game.K_d]:
             self.pos_x += self.speed
             
-        game.draw.rect(screen, (0,0,255), 10, 5)
-        #Expect screen class later. 
+        game.draw.rect(self.o_screen.get_resolution(), (0,0,255), 10, 5)
 
     # Point player to cursor
     # Needs debug later

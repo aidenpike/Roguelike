@@ -14,11 +14,10 @@ class player:
 
         resolution = game.display.set_mode([800, 600])
         background_color = (128, 128, 128)
-        o_screen = screen(resolution, background_color)
-        self.o_screen = o_screen
+        self.o_screen = screen(resolution, background_color)
 
     # Moves player based on input
-    def get_movement(self, screen):
+    def get_movement(self):
         get_key = game.key.get_pressed()
 
         if get_key[game.K_w]:
